@@ -16,11 +16,11 @@ import {
   TeamChallengeApi,
   challengeSuggestions,
   Get_advertisement,
-} from "../../redux/actions";
-import { footerStyles, } from "./footerStyles.js";
+} from "../../modules/actions";
+import { footerStyles } from "./footerStyles.js";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { Badges_Api } from "../../redux/actions.js";
+import { Badges_Api } from "../../modules/actions.js";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import NetworkModal from "../networkModal/networkModal";
 

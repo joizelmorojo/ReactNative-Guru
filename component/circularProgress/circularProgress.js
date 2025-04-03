@@ -3,7 +3,7 @@ import { Dimensions, StyleSheet, Text, View } from "react-native";
 import Svg, { Defs, LinearGradient, Stop, Circle } from "react-native-svg";
 import Animated, { Easing } from "react-native-reanimated";
 import MyText from "../MyText/MyText";
-import { useScreenDimensions } from "../../hooks/dimensions";
+import useScreenDimensions from "../../utils/dimention";
 const { Value, timing } = Animated;
 
 export default ({

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { StyleSheet } from "react-native";
-import { useScreenDimensions } from "../../hooks/dimensions";
+import useScreenDimensions from "../../utils/dimention";
 
 export const footerStyles = () => {
   const screenData = useScreenDimensions();

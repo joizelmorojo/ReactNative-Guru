@@ -10,7 +10,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { Item, Picker } from 'native-base'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { pushToHistory, ChangeArea } from "../../redux/actions";
+import { pushToHistory, ChangeArea } from "../../modules/actions";
 import MyText from "../MyText/MyText";
 
 const ChangeAreaModalComponent = (props) => {

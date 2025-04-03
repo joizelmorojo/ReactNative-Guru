@@ -10,11 +10,11 @@ import { bindActionCreators } from "redux";
 import {
   settingNetworkAlertFalse,
   settingNetworkAlertTrue,
-} from "../../redux/actions";
+} from "../../modules/actions";
 import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
 import Animated from "react-native-reanimated";
 import { Easing, Value, timing } from "react-native-reanimated";
-import { useScreenDimensions } from "../../hooks/dimensions";
+import useScreenDimensions from "../../utils/dimention";
 const { width } = Dimensions.get("window");
 function NetworkModal(props) {
   let [_transX] = useState(new Value(-100));

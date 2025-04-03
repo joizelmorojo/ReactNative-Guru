@@ -4,7 +4,6 @@ import FlashMessage from "react-native-flash-message";
 import MainNavigator from './main';
 
 
-
 const AppNavigator = () => {
   //const isAuth = useSelector(getAuth)
 

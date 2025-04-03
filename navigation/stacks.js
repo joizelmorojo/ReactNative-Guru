@@ -1,33 +1,34 @@
 import React, {useEffect, useState} from 'react';
 import {createStackNavigator} from "@react-navigation/stack";
 import {enableScreens} from "react-native-screens";
-import {isAndroid} from '../utils/platforms';
+import {isAndroid} from '../utils/platform';
 
-import LoginForm from '../screens/LogForm/LoginForm';
+import LoginForm from '../Containers/LogForm/LoginForm';
 /* Tab */
 import CustomFooter from '../component/footer/footer';
-import Home from '../screens/Homepage/Home';
-import Challenge from '../screens/ChallangePage/ChallangePage';
-import TeamChallenge from '../screens/teamChallenge/teamChallenge';
-import NextChallenge from '../screens/nextChallenge/nextChallenge';
-import TeamProgress from '../screens/teamProgress/teamProgress';
-import ThirdTabPage from '../screens/thirdTabPage/thirdTabPage';
-import LastTabPage from '../screens/LastTabPage/LastTabPage';
-import DrawerNestedOne from '../screens/DrawerNestedOne/DrawerNestedOne';
-import DrawerNestedTwo from '../screens/DrawerNestedTwo/DrawerNestedTwo';
-import RecoverPassword from '../screens/RecoverPassword/RecoverPassword';
-import RegistrationForm from '../screens/Register/registrationForm';
-import PreviousChallenge from '../screens/previousChallengeRanking/PreviousChallenge';
-import ActivityRound from '../screens/ActivityRound/ActivityRound';
-import SearchPage from '../screens/SearchPage/SearchPage';
+import Home from '../Containers/Homepage/Home';
+import Challenge from '../Containers/ChallangePage/ChallangePage';
+import TeamChallenge from '../Containers/teamChallenge/teamChallenge';
+import NextChallenge from '../Containers/nextChallenge/nextChallenge';
+import TeamProgress from '../Containers/teamProgress/teamProgress';
+import ThirdTabPage from '../Containers/thirdTabPage/thirdTabPage';
+import LastTabPage from '../Containers/LastTabPage/LastTabPage';
+import DrawerNestedOne from '../Containers/DrawerNestedOne/DrawerNestedOne';
+import DrawerNestedTwo from '../Containers/DrawerNestedTwo/DrawerNestedTwo';
+import RecoverPassword from '../Containers/RecoverPassword/RecoverPassword';
+import RegistrationForm from '../Containers/Register/registrationForm';
+import PreviousChallenge from '../Containers/previousChallengeRanking/PreviousChallenge';
+import ActivityRound from '../Containers/ActivityRound/ActivityRound';
+import SearchPage from '../Containers/SearchPage/SearchPage';
 /* Other */
-import VSpage from '../screens/VSPage/VSpage';
-import VSpageLose from '../screens/VSPageLose/VSpageLose';
-import AfterVsPage from '../screens/AfterVsPage/AfterVsPage';
-import GetReadyPage from '../screens/getReady/getReady';
-import GetReadyTeam from '../screens/GetReadyTeam/getReadyTeam';
-import ChallengeQuestionPageTeam from '../screens/ChallengeQuestionTeam/ChallengeQuestionTeam';
-
+import VSpage from '../Containers/VSPage/VSpage';
+import VSpageLose from '../Containers/VSPageLose/VSpageLose';
+import AfterVsPage from '../Containers/AfterVsPage/AfterVsPage';
+import GetReadyPage from '../Containers/getReady/getReady';
+import GetReadyTeam from '../Containers/GetReadyTeam/getReadyTeam';
+import ChallengeQuestionPageTeam from '../Containers/ChallengeQuestionTeam/ChallengeQuestionTeam';
+import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 enableScreens()
 const Stack = createStackNavigator()
@@ -56,21 +57,23 @@ export const TabScenes = () => {
 
 function MainScenes() {
 
-
-  return <Stack.Navigator 
+  return <Stack.Navigator
+    initialRouteName='SignIn'
     screenOptions={{
       headerShown: false,
     }}
   >
     <Stack.Screen name="SignIn" component={LoginForm} />
-    <Stack.Screen name="Tabs" component={TabScenes} />
+    {/* <Stack.Screen name="Tabs" component={TabScenes} />
     <Stack.Screen name='VsPage' component={VSpage} />
     <Stack.Screen name='VsPageLose' component={VSpageLose} />
     <Stack.Screen name='AfterVsPage' component={AfterVsPage} />
     <Stack.Screen name='getReady' component={GetReadyPage} />
     <Stack.Screen name='GetReadyTeam' component={GetReadyTeam} />
-    <Stack.Screen name='ChallengeQuestionTeam' component={ChallengeQuestionPageTeam} />
+    <Stack.Screen name='ChallengeQuestionTeam' component={ChallengeQuestionPageTeam} /> */}
   </Stack.Navigator>
 }
 
-export default MainScenes;
+const mapStateToProps = (state) => (state);
+const mapDispatchToProps = (dispatch) => bindActionCreators({},dispatch);
+export default connect(mapStateToProps, mapDispatchToProps)(MainScenes);

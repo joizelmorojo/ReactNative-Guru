@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { pushToHistory, ChangeArea, setLanguage } from "../../redux/actions";
+import { pushToHistory, ChangeArea, setLanguage } from "../../modules/actions";
 import MyText from "../MyText/MyText";
 
 const ChangeLanguageModalComponent = (props) => {

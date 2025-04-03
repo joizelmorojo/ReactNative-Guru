@@ -3,11 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { Image, Modal, Platform, StyleSheet, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { useScreenDimensions } from '../hooks/dimensions';
+import useScreenDimensions from '../utils/dimention';
 import MyText from './MyText/MyText';
 import { Button, Fab, Icon } from "native-base";
 import { IncidentPng } from '../env'
-import { Report_IncidentTypes } from '../redux/actions';
+import { Report_IncidentTypes } from '../modules/actions';
 function StatusConfirmationModal(props) {
     const screenData = useScreenDimensions();
     const [pageHeight, setHeightt] = useState(screenData.constantHeightt);

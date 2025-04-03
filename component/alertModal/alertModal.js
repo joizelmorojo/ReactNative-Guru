@@ -12,7 +12,7 @@ import {
   settingErrorAlertFalse,
   TeamChallengeApi,
   UserLogoutWhen501Error,
-} from "../../redux/actions";
+} from "../../modules/actions";
 
 function AlertModal(props) {
   let [show, setShow] = useState(false)
@@ -92,7 +92,96 @@ function AlertModal(props) {
   }, [props, props.ErrorAlert]);
   let lang = props.currentLanguage ? props.currentLanguage[0] : "";
   return (
-    <View></View>
+    <SCLAlert
+      theme={
+        props.ErrorAlert &&
+          props.ErrorAlert.statusCode === "successRecoverPassWord" || props.ErrorAlert && props.ErrorAlert.statusCode === "ReportQuestionSuccess"
+          ? "success"
+          : "danger"
+      }
+      show={show}
+      title={
+        props.ErrorAlert &&
+          props.ErrorAlert.statusCode === "successRecoverPassWord" || props.ErrorAlert && props.ErrorAlert.statusCode === "ReportQuestionSuccess"
+          ? ""
+          : lang["{ooops}"] === undefined ? title502 : lang["{ooops}"]
+      }
+      headerIconComponent={
+        <Image
+          source={
+            props.ErrorAlert &&
+              props.ErrorAlert.statusCode === "successRecoverPassWord" || props.ErrorAlert && props.ErrorAlert.statusCode === "ReportQuestionSuccess"
+              ? require("../../allpngandsvg/Objeto_inteligente_vectorial_front.png")
+              : require("../../allpngandsvg/Objeto_inteligente_vectorial_front_up.png")
+          }
+          style={{
+            height: 60,
+            width: 60,
+            resizeMode: "contain",
+          }}
+        />
+      }
+      onRequestClose={handleClose}
+      subtitleContainerStyle={{
+        display: "none",
+        marginBottom: 0
+      }}
+      titleContainerStyle={{
+        display: props.ErrorAlert &&
+          props.ErrorAlert.statusCode === "successRecoverPassWord" || props.ErrorAlert && props.ErrorAlert.statusCode === "ReportQuestionSuccess"
+          ? "none"
+          : "flex",
+        marginBottom: 0
+      }}
+    >
+      <Text style={{
+        fontSize: 18,
+        textAlign: "center",
+        color: "#555555",
+        fontWeight: '300'
+      }}>
+        {
+          props.ErrorAlert
+            ? Number(props.ErrorAlert.statusCode) === 409
+              ? breakStrng(props.ErrorAlert.message, lang)
+              : Number(props.ErrorAlert.statusCode) === 500
+                ? lang[`{tryagainmorelate}`]
+                : Number(props.ErrorAlert.statusCode) === 401
+                  ? lang[`{Unauthorized}`]
+                  : Number(props.ErrorAlert.statusCode) === 403
+                    ? lang[`{Forbidden}`]
+                    : Number(props.ErrorAlert.statusCode) === 404
+                      ? lang[`{Not Found}`]
+                      : Number(props.ErrorAlert.statusCode) === 408
+                        ? lang[`{RequestTimeout}`]
+                        : Number(props.ErrorAlert.statusCode) === 400
+                          ? lang[`{BadRequest}`] :
+                          props.ErrorAlert.statusCode === "ReportQuestionSuccess" ?
+                            lang[`{reportthankyou}`]
+                            :
+                            Number(props.ErrorAlert.statusCode) === 502
+                              ? lang[`{servicenotavailable}`] === undefined ? alert502 : lang[`{servicenotavailable}`] :
+                              Number(props.ErrorAlert.statusCode) === "newalert"
+                                ? props.ErrorAlert.message
+                                : props.ErrorAlert.statusCode === "signin" ||
+                                  props.ErrorAlert.statusCode === "successRecoverPassWord"
+                                  ? breakStrng(props.ErrorAlert.message, lang)
+                                  : breakStrng(props.ErrorAlert.message, lang)
+            : lang[`{errormessage}`]
+        }
+      </Text>
+      <SCLAlertButton
+        theme={
+          props.ErrorAlert &&
+            props.ErrorAlert.statusCode === "successRecoverPassWord" || props.ErrorAlert && props.ErrorAlert.statusCode === "ReportQuestionSuccess"
+            ? "success"
+            : "danger"
+        }
+        onPress={handleClose}
+      >
+        {lang["{ok}"] === undefined ? ok502 : lang["{ok}"]}
+      </SCLAlertButton>
+    </SCLAlert>
   );
 }
 

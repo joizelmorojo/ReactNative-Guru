@@ -11,8 +11,8 @@ import { ScrollView } from "react-native-gesture-handler";
 import NumberFormat from "react-number-format";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { useScreenDimensions } from "../../hooks/dimensions";
-import { breakStrng, pushToHistory } from "../../redux/actions";
+import useScreenDimensions from "../../utils/dimention";
+import { breakStrng, pushToHistory } from "../../modules/actions";
 import MyText from "../MyText/MyText";
 import { ModalStyle } from "./ModalStyle";
 

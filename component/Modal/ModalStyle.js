@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { useScreenDimensions } from "../../hooks/dimensions";
+import useScreenDimensions from "../../utils/dimention";
 
 export const ModalStyle = () => {
   const screenData = useScreenDimensions(2870, 1242);

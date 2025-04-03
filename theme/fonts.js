@@ -1,4 +1,4 @@
-export const fonts = {
+export default fonts = {
   titillium: 'titilliumRegular',
   titilliumBold: 'titilliumBold',
   titilliumBoldItalic: 'titilliumBoldItalic',
