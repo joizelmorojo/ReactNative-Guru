@@ -1,0 +1,6 @@
+export const apiBase = ""
+export const companyName = "Guru"
+export const IncidentPng = ""
+export const alert502 = "Servicio no disponible, intenta más tarde"
+export const title502 = "¡Uuups!"
+export const ok502 = "JOIZEL"
